@@ -166,3 +166,12 @@ Append-only record of what was done to the phone/PC. Newest entries at the botto
   an exact match to the patched image. Flash confirmed byte-for-byte. Full partition hash changed
   from backup `432096bc…` to `7eb85818…` as expected. SIM still absent, so carrier acceptance is
   still untested.
+
+## 2026-11-20 — upstream credits added to all five handoff docs
+- Added a consistent "Credits / upstream sources" section to every public doc, crediting the exact
+  repos and threads this work builds on. Full block also mirrored here so the log keeps provenance.
+- **Original guide + thread:** [parsimo2010/moto-g-power-2026-straight-talk-wifi-root-guide](https://github.com/parsimo2010/moto-g-power-2026-straight-talk-wifi-root-guide); [Reddit r/StraightTalk announcement](https://www.reddit.com/r/StraightTalk/comments/1xwgm37/i_rooted_a_walmart_straight_talk_moto_g_power/) by u/parsimo (community: u/angel9990, u/mclcs, u/CORRUPT27, u/jghost1337, u/newofficemusic, u/No_Car_6879).
+- **Unlock/root tools:** [Maikyxd/val-protocol](https://github.com/Maikyxd/val-protocol) (upstream [kasnria001/pwnage24mtk](https://github.com/kasnria001/pwnage24mtk), [R0rt1z2/liblk](https://github.com/R0rt1z2/liblk), [R0rt1z2/lkpatcher](https://github.com/R0rt1z2/lkpatcher)), [diabl0w/DFRoot](https://github.com/diabl0w/DFRoot) v4.7, [tiann/KernelSU](https://github.com/tiann/KernelSU) 3.3.1, [topjohnwu/Magisk](https://github.com/topjohnwu/Magisk) 31.1, [googlesamples/android-testdpc](https://github.com/googlesamples/android-testdpc).
+- **LineageOS:** [jimmielin/android_device_motorola_vegas26](https://github.com/jimmielin/android_device_motorola_vegas26) (`lineage-23.2`) + companion jimmielin/LineageOS trees, [MindTheGapps/16.0.0-arm64](https://github.com/MindTheGapps/16.0.0-arm64); reference threads [XDA UNOFFICIAL Lineage G Play 2026](https://xdaforums.com/t/unofficial-lineage-os-lineage-recovery-g-play-2026.4801191/) and [r/androidroot XT2615V unlock](https://www.reddit.com/r/androidroot/comments/1vkb0zl/success_unlocked_moto_g_play_2026_xt2615v/) by u/Significant-Noise530.
+- **Carrier unlock:** [andrewwm/vegas-freedom](https://github.com/andrewwm/vegas-freedom) (`ed78c7e`), adapted from [Articfox291/kansas-modem-unlock](https://github.com/Articfox291/kansas-modem-unlock) and [crabcakes97/Valhalla](https://github.com/crabcakes97/Valhalla).
+- **Other background:** [jesussaves-dev/moto-g-power-2026-root](https://github.com/jesussaves-dev/moto-g-power-2026-root), [fuckyoumoto.xyz](https://fuckyoumoto.xyz).

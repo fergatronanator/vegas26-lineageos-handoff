@@ -100,3 +100,39 @@ Magisk-patched `init_boot_a` (hash mismatch with vbmeta descriptors), the intend
   assuming it from this handoff.
 - If USB/fastbootd breaks, recreate the known-good path: replug cable; if needed, elevated Zadig/WinUSB
   binding with [owner]'s help; use recovery adb where possible. Do not improvise firmware flashing.
+
+## Credits / upstream sources
+
+This work stands on other people's research, code and threads. Credit and thanks to the following.
+None of their binaries are bundled in the public handoff repo.
+
+**Original guide and community thread**
+
+- [parsimo2010/moto-g-power-2026-straight-talk-wifi-root-guide](https://github.com/parsimo2010/moto-g-power-2026-straight-talk-wifi-root-guide) — the original Wi-Fi-only setup / temp-root / bootloader-unlock / Magisk guide and guide kit (by u/parsimo).
+- [Reddit r/StraightTalk announcement thread](https://www.reddit.com/r/StraightTalk/comments/1xwgm37/i_rooted_a_walmart_straight_talk_moto_g_power/) by u/parsimo. The `-4-3` and Magisk wrinkle was worked out in the comments by u/angel9990 and u/mclcs, with keygen/OTA input from u/CORRUPT27, u/jghost1337 and u/newofficemusic. The optional modem-level carrier unlock was reported there by u/No_Car_6879 and confirmed on `-4-3` by u/mclcs.
+
+**Bootloader unlock, temporary root, Magisk**
+
+- [Maikyxd/val-protocol](https://github.com/Maikyxd/val-protocol) — LK patch and unlock-key generation. Its own upstream credits: [kasnria001/pwnage24mtk](https://github.com/kasnria001/pwnage24mtk), [R0rt1z2/liblk](https://github.com/R0rt1z2/liblk), [R0rt1z2/lkpatcher](https://github.com/R0rt1z2/lkpatcher).
+- [diabl0w/DFRoot](https://github.com/diabl0w/DFRoot) v4.7 — temporary root (CVE-2026-43284).
+- [tiann/KernelSU](https://github.com/tiann/KernelSU) 3.3.1 — temporary root.
+- [topjohnwu/Magisk](https://github.com/topjohnwu/Magisk) 31.1 — persistent root and the systemless modules.
+- [googlesamples/android-testdpc](https://github.com/googlesamples/android-testdpc) — Test DPC provisioning QR used at setup.
+
+**LineageOS 23.2**
+
+- [jimmielin/android_device_motorola_vegas26](https://github.com/jimmielin/android_device_motorola_vegas26) (`lineage-23.2`) plus the companion `jimmielin` trees `android_device_motorola_vegas26-kernels`, `android_device_motorola_mt6835-common`, `android_vendor_motorola_vegas26`, `android_vendor_motorola_mt6835-common-vegas26` — the device/vendor trees this ROM was built from.
+- [LineageOS](https://github.com/LineageOS) — `android_hardware_mediatek`, `android_device_mediatek_sepolicy_vndr`, `android_hardware_motorola`, and the AOSP/LineageOS platform.
+- [MindTheGapps/16.0.0-arm64](https://github.com/MindTheGapps/16.0.0-arm64) — the Gapps package.
+- [XDA thread — UNOFFICIAL Lineage OS/Lineage Recovery G Play 2026](https://xdaforums.com/t/unofficial-lineage-os-lineage-recovery-g-play-2026.4801191/) by u/Significant-Noise530 — sibling XT2615V device, reference only (not flashed).
+- [Reddit r/androidroot — SUCCESS: unlocked Moto G Play 2026 (XT2615V) bootloader](https://www.reddit.com/r/androidroot/comments/1vkb0zl/success_unlocked_moto_g_play_2026_xt2615v/) by u/Significant-Noise530 — Val Protocol notes on a sibling MT6835 device.
+
+**Carrier / SIM unlock**
+
+- [andrewwm/vegas-freedom](https://github.com/andrewwm/vegas-freedom) (commit `ed78c7e`) — the bootloader + modem (`md1img`) SIM-unlock patcher used here. The modem half is adapted from [Articfox291/kansas-modem-unlock](https://github.com/Articfox291/kansas-modem-unlock); the bootloader half from [crabcakes97/Valhalla](https://github.com/crabcakes97/Valhalla) (built on val-protocol + liblk).
+
+**Other background (reference only — not used on this phone)**
+
+- [jesussaves-dev/moto-g-power-2026-root](https://github.com/jesussaves-dev/moto-g-power-2026-root) — GSI / custom-AVB-key route.
+- [fuckyoumoto.xyz](https://fuckyoumoto.xyz) — background on other Motorola MTK unlock mechanics.
+- Google (Android Platform Tools) and Motorola (signed Windows USB driver).
