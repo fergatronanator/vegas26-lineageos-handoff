@@ -20,6 +20,7 @@ install.
 | `HOWTO-vegas26-root-lineage.md` | Full step-by-step walkthrough (unlock → backup → root → build → flash) |
 | `ACTIONS-LOG.md` | Append-only chronological log of every action and outcome |
 | `AGENT-HANDOFF.md` | "Start here" document for another agent continuing the work |
+| `CARRIER-UNLOCK.md` | Optional modem-level carrier/SIM unlock: provenance, what it changes, backups, verification, revert |
 
 ## Safety note
 

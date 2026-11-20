@@ -140,3 +140,29 @@ Append-only record of what was done to the phone/PC. Newest entries at the botto
 - Verified remote: PUBLIC visibility, all 4 files present, zero redaction hits in the fetched
   remote content.
 - This log entry appended afterward; public copy regenerated and re-pushed.
+
+## 2026-11-20 — carrier/SIM unlock attempt (modem patch, slot A only)
+- Clarified that bootloader unlock and carrier unlock are separate: the SIM lock lives in the modem
+  (`md1img`), not Android or the bootloader. Official Straight Talk/TracFone policy requires 365
+  paid active days (activated on/after 2026-01-20), so this phone is not eligible.
+- Read-only compatibility check with `andrewwm/vegas-freedom` (HEAD `ed78c7e`) on the verified
+  backup `md1img_a.img` (sha 432096bc…, trimmed dab9e69e…): **COMPATIBLE (VERIFIED-LIVE XT2617V
+  -4-2)**, all 8 SIM-lock signatures at expected offsets. The -4-3 modem is byte-identical, so no
+  `--experimental-relocate` was needed.
+- Built locally: `md1img_vegas_patched.signed.img` sha `f6bd718ffb5c734cdab9e3c9c8c83987bf8e7b71299adb372cf678940b27046a`
+  (exact match to the tool's verified-live image). Revert image `md1img_stock_trimmed.img` staged.
+- Preflight in bootloader: `securestate=flashing_unlocked`, `current-slot=a`, `is-userspace=no`,
+  bootloader `MBM-3.1-…-W1WEOS36.48-22-3-3-4-3-7806ed`. (First two script attempts aborted on my
+  getvar parser before any write; third attempt passed.)
+- **Flashed `md1img_a` ONLY** — `OKAY`, 74305 KB. Rebooted; slot `_a`, `sys.boot_completed=1`,
+  baseband unchanged, `ro.lineage.version` unchanged. No SIM inserted, so `gsm.sim.state` still
+  `ABSENT,NOT_READY` — **functional unlock UNVERIFIED**.
+- `adb root` was initially disabled on the running LineageOS (Developer options toggle required for
+  readback verification). Slot B remains untouched stock `-4-3` rollback lever. Revert path: reflash
+  `work/modem_work/md1img_stock_trimmed.img` to `md1img_a`.
+- Readback verification (after [owner] enabled rooted debugging): `adb root` → uid 0, dumped live
+  `/dev/block/by-name/md1img_a`, and hashed the first 76,088,448 bytes both on-device and locally
+  after `adb pull`. Both = `f6bd718ffb5c734cdab9e3c9c8c83987bf8e7b71299adb372cf678940b27046a`,
+  an exact match to the patched image. Flash confirmed byte-for-byte. Full partition hash changed
+  from backup `432096bc…` to `7eb85818…` as expected. SIM still absent, so carrier acceptance is
+  still untested.
