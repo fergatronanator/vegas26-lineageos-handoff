@@ -127,3 +127,16 @@ Append-only record of what was done to the phone/PC. Newest entries at the botto
 - Upstream re-check (17:5x UTC): all 8 repos still at the same `lineage-23.2` HEAD as
   GitHub — no new commits/releases/tags.
 - Magisk APK present locally: `MotoRoot\Magisk-v31.1.apk` (for re-rooting `init_boot_a`).
+
+## 2026-11-20 — sanitized public GitHub handoff packet
+- Built `public-repo\` staging folder with only 4 sanitized markdown docs (README.md,
+  HOWTO-vegas26-root-lineage.md, ACTIONS-LOG.md, AGENT-HANDOFF.md). Excluded all backups,
+  APKs, firmware images, keys, and raw logs.
+- Redacted: device serial, unlock secret/key, local Windows paths, owner name, Wi-Fi
+  SSID/IP/BSSID. Verified zero sensitive-token matches before and after upload.
+- Initialized git on `main`; first commit `c4e376f` ("Add sanitized vegas26 unlock/root/LineageOS
+  handoff").
+- Created public repo `vegas26-lineageos-handoff` on the owner's GitHub account and pushed `main`.
+- Verified remote: PUBLIC visibility, all 4 files present, zero redaction hits in the fetched
+  remote content.
+- This log entry appended afterward; public copy regenerated and re-pushed.
